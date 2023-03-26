@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap");
+
+:root {
+  --reaction-test-red: hsl(0, 100%, 67%);
+  --memory-test-yellow: hsl(39, 100%, 81%);
+  --verbal-test-green: hsl(166, 100%, 37%);
+  --visual-test-blue: hsl(234, 85%, 45%);
+
+  --primary-background-gradient-color: hsl(252, 100%, 67%);
+  --secondary-background-gradient-color: hsl(241, 81%, 54%);
+
+  --primary-circle-gradient-color: hsla(256, 72%, 46%, 1);
+  --secondary-circle-gradient-color: hsla(241, 72%, 46%, 0);
+
+  --white: hsl(0, 0%, 100%);
+  --pale-blue: hsl(221, 100%, 96%);
+  --light-lavender: hsl(241, 100%, 89%);
+  --dark-gray-blue: hsl(224, 30%, 27%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Hanken Grotesk", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card {
+  width: 100%;
+}
+
+.result {
+  background-image: linear-gradient(
+    to bottom,
+    var(--primary-background-gradient-color),
+    var(--secondary-background-gradient-color)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 0 0 40px 40px;
+}
+
+.result > h1 {
+  font-weight: 500;
+  font-size: 1.2em;
+  margin-top: 1.5rem;
+  margin-bottom: 1.3rem;
+  color: var(--light-lavender);
+}
+
+.score-circle {
+  min-width: 140px;
+  min-height: 140px;
+  border-radius: 50%;
+  background-image: linear-gradient(
+    to bottom,
+    var(--primary-circle-gradient-color),
+    var(--secondary-circle-gradient-color)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.score-circle .reached-score {
+  color: var(--white);
+  font-size: 3.4em;
+  font-weight: 800;
+}
+
+.score-circle .maximum-score {
+  color: hsla(0, 0%, 100%, 0.424);
+}
+
+.rating {
+  color: var(--white);
+  font-size: 1.4em;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.info {
+  text-align: center;
+  width: 260px;
+  color: var(--light-lavender);
+  margin-bottom: 2.5rem;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+.summary {
+  margin: 1.5rem 2rem;
+}
+
+.summary > h1 {
+  color: var(--dark-gray-blue);
+  font-size: 1.1em;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.categories-test-wrapper {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 7px;
+  padding: 15px;
+  margin-bottom: 1rem;
+}
+
+.categories-test-wrapper > div {
+  display: flex;
+  gap: 12px;
+}
+
+.categories-test-wrapper h2 {
+  display: inline-block;
+  font-size: 1em;
+}
+
+.categories-test-wrapper p {
+  color: rgba(0, 0, 0, 0.402);
+  font-weight: 800;
+}
+
+.categories-test-wrapper .individual-reached-score {
+  color: var(--dark-gray-blue);
+  font-weight: 800;
+}
+
+.reaction-category {
+  color: var(--reaction-test-red);
+  background-color: hsla(0, 100%, 67%, 0.059);
+}
+
+.memory-category {
+  color: var(--memory-test-yellow);
+  background-color: hsla(39, 100%, 81%, 0.144);
+}
+
+.verbal-category {
+  color: var(--verbal-test-green);
+  background-color: hsla(166, 100%, 37%, 0.049);
+}
+
+.visual-category {
+  color: var(--visual-test-blue);
+  background-color: hsla(234, 85%, 45%, 0.052);
+}
+
+#continue-button {
+  background-color: hsl(224, 30%, 27%);
+  border: none;
+  color: var(--white);
+  padding: 15px;
+  width: 100%;
+  border-radius: 50px;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+#continue-button:hover {
+  background-color: var(--secondary-background-gradient-color);
+}
+
+@media screen and (min-width: 772px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .card {
+    width: 650px;
+    display: flex;
+    box-shadow: 10px 24px 40px 15px var(--pale-blue);
+    border-radius: 30px;
+  }
+
+  .result {
+    border-radius: 30px;
+    width: 50%;
+    flex-direction: column;
+  }
+
+  .info {
+    padding: 1rem;
+  }
+
+  .summary {
+    width: 50%;
+  }
+
+  #continue-button {
+    margin: 1.3rem 0;
+  }
+}
