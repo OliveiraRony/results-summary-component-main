@@ -2,7 +2,7 @@
 
 :root {
   --reaction-test-red: hsl(0, 100%, 67%);
-  --memory-test-yellow: hsl(39, 100%, 81%);
+  --memory-test-yellow: hsl(47, 100%, 62%);
   --verbal-test-green: hsl(166, 100%, 37%);
   --visual-test-blue: hsl(234, 85%, 45%);
 
@@ -22,44 +22,35 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Hanken Grotesk", sans-serif;
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  font-family: "Hanken Grotesk", sans-serif;
+  height: 100vh;
 }
 
-.card {
-  width: 100%;
-}
-
-.result {
+.results {
+  color: hsla(0, 0%, 100%, 0.7);
   background-image: linear-gradient(
     to bottom,
     var(--primary-background-gradient-color),
     var(--secondary-background-gradient-color)
   );
+
+  padding: 1.2rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  border-radius: 0 0 40px 40px;
+  align-items: center;
+  border-radius: 0 0 30px 30px;
 }
 
-.result > h1 {
-  font-weight: 500;
-  font-size: 1.2em;
-  margin-top: 1.5rem;
-  margin-bottom: 1.3rem;
-  color: var(--light-lavender);
+.results > h1 {
+  font-size: 1.1em;
 }
 
-.score-circle {
-  min-width: 140px;
-  min-height: 140px;
+.results .result-score {
+  width: 140px;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   background-image: linear-gradient(
     to bottom,
@@ -69,146 +60,155 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  margin: 1.3rem 0;
 }
 
-.score-circle .reached-score {
-  color: var(--white);
-  font-size: 3.4em;
+.result-score .reached-score {
+  display: block;
+  font-size: 3em;
   font-weight: 800;
-}
-
-.score-circle .maximum-score {
-  color: hsla(0, 0%, 100%, 0.424);
-}
-
-.rating {
   color: var(--white);
-  font-size: 1.4em;
-  font-weight: 500;
-  margin-top: 1.5rem;
-  margin-bottom: 0.6rem;
 }
 
-.info {
-  text-align: center;
-  width: 260px;
-  color: var(--light-lavender);
-  margin-bottom: 2.5rem;
+.result-score p {
+  color: hsl(0, 0%, 100%, 0.4);
 }
 
-.attribution {
-  font-size: 11px;
-  text-align: center;
+.results .score-rating {
+  font-size: 1.5em;
+  color: var(--white);
+  font-weight: 700;
 }
-.attribution a {
-  color: hsl(228, 45%, 44%);
+.results .info {
+  text-align: center;
+  padding: 0.8rem 1.3rem 1.5rem 1.3rem;
 }
 
 .summary {
-  margin: 1.5rem 2rem;
+  padding: 1.5rem;
 }
 
-.summary > h1 {
+.summary h2 {
+  font-size: 1.2em;
   color: var(--dark-gray-blue);
-  font-size: 1.1em;
-  font-weight: 800;
-  margin-bottom: 1rem;
+  margin-bottom: 1.3rem;
 }
 
-.categories-test-wrapper {
-  display: flex;
-  justify-content: space-between;
+.summary-item {
+  background-color: var(--pale-blue);
+  margin: 1rem 0;
   border-radius: 7px;
-  padding: 15px;
-  margin-bottom: 1rem;
-}
-
-.categories-test-wrapper > div {
   display: flex;
-  gap: 12px;
-}
-
-.categories-test-wrapper h2 {
-  display: inline-block;
-  font-size: 1em;
-}
-
-.categories-test-wrapper p {
-  color: rgba(0, 0, 0, 0.402);
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
   font-weight: 800;
 }
+.summary-item p {
+  color: hsl(224, 30%, 27%, 0.5);
+}
 
-.categories-test-wrapper .individual-reached-score {
+.summary-item span {
   color: var(--dark-gray-blue);
+}
+
+.summary-item .flex-group {
+  display: flex;
+  gap: 10px;
+}
+
+.flex-group h3 {
+  font-size: 1em;
   font-weight: 800;
 }
 
 .reaction-category {
   color: var(--reaction-test-red);
-  background-color: hsla(0, 100%, 67%, 0.059);
+  background-color: hsl(0, 100%, 67%, 0.1);
 }
 
 .memory-category {
   color: var(--memory-test-yellow);
-  background-color: hsla(39, 100%, 81%, 0.144);
+  background-color: hsl(39, 100%, 81%, 0.2);
 }
 
 .verbal-category {
   color: var(--verbal-test-green);
-  background-color: hsla(166, 100%, 37%, 0.049);
+  background-color: hsl(166, 100%, 37%, 0.1);
 }
 
 .visual-category {
   color: var(--visual-test-blue);
-  background-color: hsla(234, 85%, 45%, 0.052);
+  background-color: hsl(234, 85%, 45%, 0.1);
 }
 
 #continue-button {
-  background-color: hsl(224, 30%, 27%);
-  border: none;
   color: var(--white);
-  padding: 15px;
+  font-size: 1em;
+  font-weight: 700;
+  background-color: var(--dark-gray-blue);
+  border: none;
   width: 100%;
-  border-radius: 50px;
-  font-size: 1.1em;
-  cursor: pointer;
+  padding: 1.2rem;
+  border-radius: 30px;
+  margin-top: 0.5rem;
 }
 
 #continue-button:hover {
-  background-color: var(--secondary-background-gradient-color);
+  cursor: pointer;
+  background-image: linear-gradient(
+    to bottom,
+    var(--primary-background-gradient-color),
+    var(--secondary-background-gradient-color)
+  );
 }
 
-@media screen and (min-width: 772px) {
+@media (min-width: 768px) {
   body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
   }
-
-  .card {
-    width: 650px;
+  main {
+    border-radius: 35px;
     display: flex;
-    box-shadow: 10px 24px 40px 15px var(--pale-blue);
-    border-radius: 30px;
+    max-width: 670px;
+    box-shadow: 10px 20px 50px 25px hsl(241, 100%, 89%, 0.3);
   }
 
-  .result {
-    border-radius: 30px;
+  .results {
     width: 50%;
-    flex-direction: column;
+    border-radius: 35px;
   }
 
-  .info {
-    padding: 1rem;
+  .results h1 {
+    font-size: 1.2em;
+    margin-top: 1rem;
+  }
+
+  .results .result-score {
+    width: 190px;
+    margin: 1.3em 0;
+  }
+
+  .result-score p {
+    text-align: center;
+  }
+
+  .result-score .reached-score {
+    font-size: 4em;
   }
 
   .summary {
     width: 50%;
+    padding: 2rem;
+  }
+
+  .results .info {
+    padding: 1rem 2rem 0 2rem;
   }
 
   #continue-button {
-    margin: 1.3rem 0;
+    margin-top: 1.5rem;
   }
 }
